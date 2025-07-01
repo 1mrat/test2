@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Web Agent Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    
+    <header class="hero">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-robot"></i>
+                <span>AI Agent</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Next-Gen Web Agents</span>
+                <br>Redefining Digital Intelligence
+            </h1>
+            <p class="hero-subtitle">
+                Experience the future of web automation with AI agents that think, learn, and execute complex tasks with unprecedented precision.
+            </p>
+            <button class="cta-button" onclick="scrollToDemo()">
+                <span>Explore Capabilities</span>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Revolutionary Capabilities</h2>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Cognitive Reasoning</h3>
+                    <p>Advanced AI reasoning that understands context, intent, and complex relationships between data points.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Code Generation</h3>
+                    <p>Generates, debugs, and optimizes code across multiple programming languages with expert-level proficiency.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Web Intelligence</h3>
+                    <p>Navigates and extracts information from the web with human-like understanding and precision.</p>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analysis</h3>
+                    <p>Processes complex datasets, identifies patterns, and generates actionable insights in real-time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Demo</h2>
+            
+            <div class="demo-tabs">
+                <button class="tab-button active" onclick="switchTab('coding')">
+                    <i class="fas fa-code"></i>
+                    Code Generator
+                </button>
+                <button class="tab-button" onclick="switchTab('search')">
+                    <i class="fas fa-search"></i>
+                    Web Search
+                </button>
+                <button class="tab-button" onclick="switchTab('analysis')">
+                    <i class="fas fa-chart-bar"></i>
+                    Data Analysis
+                </button>
+                <button class="tab-button" onclick="switchTab('creative')">
+                    <i class="fas fa-palette"></i>
+                    Creative AI
+                </button>
+            </div>
+
+            <div class="demo-content">
+                <!-- Code Generator Tab -->
+                <div id="coding-tab" class="tab-content active">
+                    <div class="demo-interface">
+                        <div class="input-section">
+                            <h3>Describe what you want to build:</h3>
+                            <textarea id="code-prompt" placeholder="e.g., Create a responsive navigation bar with dropdown menus..."></textarea>
+                            <button class="generate-btn" onclick="generateCode()">
+                                <i class="fas fa-magic"></i>
+                                Generate Code
+                            </button>
+                        </div>
+                        <div class="output-section">
+                            <h3>Generated Code:</h3>
+                            <pre id="code-output"><code>// Your generated code will appear here
+// Try describing a web component or function!</code></pre>
+                            <button class="copy-btn" onclick="copyCode()">
+                                <i class="fas fa-copy"></i>
+                                Copy Code
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Search Tab -->
+                <div id="search-tab" class="tab-content">
+                    <div class="demo-interface">
+                        <div class="input-section">
+                            <h3>Search the web intelligently:</h3>
+                            <input type="text" id="search-query" placeholder="e.g., Latest developments in quantum computing...">
+                            <button class="generate-btn" onclick="performSearch()">
+                                <i class="fas fa-search"></i>
+                                Smart Search
+                            </button>
+                        </div>
+                        <div class="output-section">
+                            <h3>Search Results & Analysis:</h3>
+                            <div id="search-results">
+                                <p>Enter a search query to see intelligent web search in action!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Analysis Tab -->
+                <div id="analysis-tab" class="tab-content">
+                    <div class="demo-interface">
+                        <div class="input-section">
+                            <h3>Upload or paste data for analysis:</h3>
+                            <textarea id="data-input" placeholder="Paste CSV data, JSON, or describe your dataset..."></textarea>
+                            <button class="generate-btn" onclick="analyzeData()">
+                                <i class="fas fa-chart-line"></i>
+                                Analyze Data
+                            </button>
+                        </div>
+                        <div class="output-section">
+                            <h3>Analysis Results:</h3>
+                            <div id="analysis-output">
+                                <canvas id="analysis-chart"></canvas>
+                                <div id="analysis-insights"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative AI Tab -->
+                <div id="creative-tab" class="tab-content">
+                    <div class="demo-interface">
+                        <div class="input-section">
+                            <h3>Creative AI Playground:</h3>
+                            <select id="creative-type">
+                                <option value="story">Write a Story</option>
+                                <option value="poem">Generate a Poem</option>
+                                <option value="idea">Brainstorm Ideas</option>
+                                <option value="design">Design Concept</option>
+                            </select>
+                            <textarea id="creative-prompt" placeholder="Provide a theme or starting point..."></textarea>
+                            <button class="generate-btn" onclick="generateCreative()">
+                                <i class="fas fa-palette"></i>
+                                Create
+                            </button>
+                        </div>
+                        <div class="output-section">
+                            <h3>Creative Output:</h3>
+                            <div id="creative-output">
+                                <p>Let your imagination run wild with AI-powered creativity!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="capabilities" class="capabilities-section">
+        <div class="container">
+            <h2 class="section-title">Real-Time Capabilities</h2>
+            <div class="capabilities-grid">
+                <div class="capability-item">
+                    <div class="capability-metric">
+                        <span class="metric-value" data-target="99.7">0</span>
+                        <span class="metric-unit">%</span>
+                    </div>
+                    <p>Task Success Rate</p>
+                </div>
+                <div class="capability-item">
+                    <div class="capability-metric">
+                        <span class="metric-value" data-target="847">0</span>
+                        <span class="metric-unit">ms</span>
+                    </div>
+                    <p>Average Response Time</p>
+                </div>
+                <div class="capability-item">
+                    <div class="capability-metric">
+                        <span class="metric-value" data-target="127">0</span>
+                        <span class="metric-unit">+</span>
+                    </div>
+                    <p>Supported Languages</p>
+                </div>
+                <div class="capability-item">
+                    <div class="capability-metric">
+                        <span class="metric-value" data-target="24">0</span>
+                        <span class="metric-unit">/7</span>
+                    </div>
+                    <p>Always Available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Web Agent</span>
+                </div>
+                <p>Pioneering the future of intelligent web automation.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
